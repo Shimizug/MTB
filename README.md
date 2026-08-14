@@ -135,6 +135,25 @@ AIが提案したタスクは、ユーザーが内容を確認した後に登録
 
 ## 開発環境
 
+### ローカル環境の操作
+
+Podmanのコマンドを直接入力せず、リポジトリ直下のシェルスクリプトから操作します。
+
+```sh
+# 初回起動（初回実行時は.envを作成して終了します）
+sh 00_init.sh
+
+# 再ビルド・再起動
+sh 01_restart.sh
+
+# PostgreSQLを含むローカルボリュームの再作成
+sh 02_recreate_db.sh
+```
+
+初回は`sh 00_init.sh`が`.env.example`から`.env`を作成します。`.env`の`POSTGRES_PASSWORD`を安全な値へ変更した後、もう一度`sh 00_init.sh`を実行してください。
+
+`02_recreate_db.sh`はPostgreSQLを含むComposeプロジェクトのボリュームを削除するため、既存のローカルデータは失われます。
+
 ### ホスト環境
 
 - OS：Windows
