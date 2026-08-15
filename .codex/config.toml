@@ -1,0 +1,4 @@
+# Codexを原則読み取り専用で使用する
+sandbox_mode = "read-only"
+# 自動的な権限昇格を行わない
+approval_policy = "never"
