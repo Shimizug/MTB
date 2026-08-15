@@ -1,0 +1,15 @@
+name: handoff-test
+initial_step: copilot
+max_steps: 1
+
+steps:
+  - name: copilot
+    provider: copilot
+    edit: false
+    policy: review
+    prompt: |
+      次の1行だけを出力してください。
+
+      HANDOFF_WORD: りんご
+
+      ファイルの編集はしないでください。
