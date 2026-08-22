@@ -1,0 +1,14 @@
+name: default
+initial_step: copilot
+max_steps: 1
+
+steps:
+  - name: copilot
+    provider: copilot
+    edit: false
+    prompt: |
+      Above, under Instructions, is the user's request.
+      Respond to that request in Japanese.
+    rules:
+      - condition: Step complete
+        next: COMPLETE
