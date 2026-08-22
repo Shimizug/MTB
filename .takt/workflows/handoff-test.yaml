@@ -13,3 +13,6 @@ steps:
       HANDOFF_WORD: りんご
 
       ファイルの編集はしないでください。
+    rules:
+      - condition: Step complete
+        next: COMPLETE

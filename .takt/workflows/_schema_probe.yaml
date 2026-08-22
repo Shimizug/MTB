@@ -1,8 +1,0 @@
-name: _schema_probe
-max_steps: 10
-initial_step: step1
-steps:
-  - name: step1
-    rules:
-      - condition: Step complete
-        next: COMPLETE
