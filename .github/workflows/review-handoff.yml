@@ -1,15 +1,20 @@
 name: Review Handoff
+
 on:
   pull_request_review:
     types: [submitted]
+
 jobs:
-  detect-copilot-review:
-    if: github.event.review.user.login == 'copilot-pull-request-reviewer[bot]'
+  detect-codex-review:
+    if: contains(github.event.review.user.login, 'codex')
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
+
     steps:
-      - name: Copilot review detected
+      - name: Codex review detected
         run: |
-          echo "Copilot review completed."
+          echo "Codex review completed."
+          echo "Reviewer: ${{ github.event.review.user.login }}"
           echo "PR: #${{ github.event.pull_request.number }}"

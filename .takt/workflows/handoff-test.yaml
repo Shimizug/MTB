@@ -1,18 +1,18 @@
-name: handoff-test
-initial_step: copilot
-max_steps: 1
+name: codex-to-copilot-test
+initial_step: codex
+max_steps: 2
 
 steps:
-  - name: copilot
-    provider: copilot
+  - name: codex
+    persona: codex-test
     edit: false
-    policy: review
-    prompt: |
-      次の1行だけを出力してください。
-
-      HANDOFF_WORD: りんご
-
-      ファイルの編集はしないでください。
     rules:
-      - condition: Step complete
+      - condition: Codex completed
+        next: copilot
+
+  - name: copilot
+    persona: copilot-test
+    edit: false
+    rules:
+      - condition: Copilot completed
         next: COMPLETE
